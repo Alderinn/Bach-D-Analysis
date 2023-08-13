@@ -35,6 +35,8 @@ def process_text_document(file_path, phrase_length=2, n_most_common=10):
 if __name__ == "__main__":
 
     directory = 'data/'
+    phrase_length=int(input("Phrase Length:"))
+
     for filename in os.scandir(directory):
         if filename.is_file():
-            process_text_document(filename.name, phrase_length=5, n_most_common=10)
+            process_text_document(filename.name, phrase_length, n_most_common=10)
