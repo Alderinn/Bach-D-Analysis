@@ -1,9 +1,11 @@
 import nltk
-nltk.download('wordnet', quiet=True)
 from nltk.tokenize import word_tokenize
 from collections import Counter
 import string, os
 import csv
+
+
+
 def combineDatasets(file_path):
     with open('data/'+file_path, 'r', encoding='utf-8') as file:
         text = file.read()
@@ -13,7 +15,7 @@ def combineDatasets(file_path):
 
         # Remove Punctuation and Lowercase
         tokens = [token.lower() for token in tokens if token.isalpha()]
-        print(f'Tokenized {file_path} successfully!')
+        # print(f'Tokenized {file_path} successfully!')
 
 
         return tokens
@@ -31,16 +33,16 @@ def ExportCollectiveReports():
             for x in combineDatasets(filename.name):
                 collective.append(x)
                 wrdCnt += 1
-        print(f" {wrdCnt} words in: {filename.name}")
+        # print(f" {wrdCnt} words in: {filename.name}")
 
         totalwords = totalwords + wrdCnt
 
 
     # Calculate Phrase Frequencies
     phrases = [' '.join(collective[i:i+phrase_length]) for i in range(len(collective) - phrase_length + 1)]
-    print(f"Phrases: {phrases}")
+    # print(f"Phrases: {phrases}")
     phrase_frequencies = Counter(phrases)
-    print(f"Phrase_Frequencies: {phrase_frequencies}")
+    # print(f"Phrase_Frequencies: {phrase_frequencies}")
 
 
     # Sort and Display Results
