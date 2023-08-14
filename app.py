@@ -3,6 +3,8 @@ from dash import dcc
 from dash import html
 import pandas as pd
 filename = "S08Emta.csv"
+filename = "07x07_-_Week_7_(Season_7).txt.csv"
+
 data = pd.read_csv("csv/"+filename)
 app = Dash(__name__)
 
