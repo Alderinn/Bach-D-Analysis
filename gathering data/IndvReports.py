@@ -31,9 +31,9 @@ def process(file_path, phrase_length=2, n_most_common=10):
         for phrase, frequency in n_most_common_phrases:
             file.write(f'{phrase}: {frequency}\n')
 def ExportIndvReports():
-    directory = 'data/'
+    directory = 'data/Bachelorete'
     phrase_length=int(input("Phrase Length:"))
-
+    
     for filename in os.scandir(directory):
         if filename.is_file():
             process(filename.name, phrase_length, n_most_common=10)
