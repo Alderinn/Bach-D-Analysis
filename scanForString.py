@@ -5,9 +5,9 @@ import mmap, os, csv
 count=0
 def searchData(directory='./data/Bachelorette'):
     phrase=input("Search term:") # Ex: 'for the right reason'
-    with open('reults.csv','a') as f:
+    with open('results.csv','a') as f:
                 write = csv.writer(f)
-                write.writerow({'seasons': 'seasons', 'episode': 'episode', 'count':'count'})
+                write.writerow({'season': 'season', 'episode': 'episode', 'count':'count'})
                 
     for filename in os.scandir(directory):
         #Extracting Season/Episode from title Ex: 06x01_-_Week_1_(Season_6).txt
@@ -18,9 +18,9 @@ def searchData(directory='./data/Bachelorette'):
             filename = directory +'/'+filename.name
             found_count = process(filename, phrase, count)
             # {episodeNum},{seasonNum},{Occurance}
-            with open('reults.csv','a') as f:
+            with open('results.csv','a') as f:
                 write = csv.writer(f)
-                write.writerow({seasonNum: 'seasons', episodeNum: 'episode', found_count:'count'})
+                write.writerow({seasonNum: 'season', episodeNum: 'episode', found_count:'count'})
                 print(f"Row for S{seasonNum}:E{episodeNum} added!")
 def process(filename,searchTerm,count):
     # find {searchTerm} within {filename} and return {count}
@@ -33,5 +33,3 @@ def process(filename,searchTerm,count):
         except FileNotFoundError:
             print(f"File '{filename}' not found.")
             return False
-# - Start
-searchData()

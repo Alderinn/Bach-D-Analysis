@@ -4,7 +4,7 @@ import plotly.express as px
 
 def createBubbles():
     # Load data from CSV file
-    data = pd.read_csv("reults.csv")
+    data = pd.read_csv("results(fixed).csv")
     # Create a bubble chart
     fig = px.scatter(data, x="episode", y="season",
                     size="count", color="count",
