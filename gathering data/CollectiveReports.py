@@ -42,12 +42,8 @@ def ExportCollectiveReports():
     phrases = [' '.join(collective[i:i+phrase_length]) for i in range(len(collective) - phrase_length + 1)]
     # print(f"Phrases: {phrases}")
     phrase_frequencies = Counter(phrases)
-    # print(f"Phrase_Frequencies: {phrase_frequencies}")
-
-
     # Sort and Display Results
     n_most_common_phrases = phrase_frequencies.most_common(n_most_common)
-
 
     with open(f'{filename.name}.csv', 'w') as f:
         write = csv.writer(f)
