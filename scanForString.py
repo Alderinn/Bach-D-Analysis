@@ -5,6 +5,10 @@ import mmap, os, csv
 count=0
 def searchData(directory='./data/Bachelorette'):
     phrase=input("Search term:") # Ex: 'for the right reason'
+    with open('reults.csv','a') as f:
+                write = csv.writer(f)
+                write.writerow({'seasons': 'seasons', 'episode': 'episode', 'count':'count'})
+                
     for filename in os.scandir(directory):
         #Extracting Season/Episode from title Ex: 06x01_-_Week_1_(Season_6).txt
         episodeNum = filename.name[3:5]
