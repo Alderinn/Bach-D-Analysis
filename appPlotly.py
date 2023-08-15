@@ -13,6 +13,10 @@ def createBubbles():
     fig.update_layout(
         xaxis_title="Episode",
         yaxis_title="Season",
-        legend_title="Season"
-    )
+        legend_title="Season",
+        xaxis = dict(
+            tickmode = 'array',
+            tickvals = [1,2,3,4,5,6,7,8,9,10,11,12],
+            )
+        )
     fig.show()

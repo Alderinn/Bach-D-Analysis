@@ -14,6 +14,4 @@ def main():
     createBubbles()
     os.remove("results.csv")
     os.remove("results(fixed).csv")
-
-
 main()
